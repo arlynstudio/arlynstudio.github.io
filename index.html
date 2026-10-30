@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arlyn Jane Labrador | Virtual Assistant, Web and Design Support</title>
+  <meta name="description" content="Virtual assistant with web development and design skills. Canva designs, PowerPoint decks, CapCut video edits, and simple websites.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F2F4FA;
+      --ink: #1A1D3A;
+      --muted: #565A7A;
+      --indigo: #3F44D9;
+      --marigold: #FFC24B;
+      --mist: #DDE1F2;
+      --white: #FFFFFF;
+      --display: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+      --body: "Figtree", "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--body); font-size: 1.05rem; line-height: 1.65; color: var(--ink); background: var(--paper); }
+    a { color: var(--indigo); }
+    a:focus-visible, .btn:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; border-radius: 6px; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top bar */
+    .top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+    .top .mark { font-family: var(--display); font-weight: 800; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+    .top nav { display: flex; gap: 22px; }
+    .top nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.98rem; }
+    .top nav a:hover { color: var(--indigo); }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 56px; align-items: center; padding: 48px 0 96px; }
+    .hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.8rem, 7vw, 5.2rem); line-height: 0.98; letter-spacing: -0.03em; }
+    .hero .lead { margin-top: 24px; max-width: 30em; font-size: 1.25rem; color: var(--muted); }
+    .hero .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .btn { display: inline-block; background: var(--indigo); color: var(--white); padding: 14px 28px; border-radius: 999px; text-decoration: none; font-weight: 600; transition: transform .15s ease, background .15s ease; }
+    .btn:hover { background: #2E32B8; transform: translateY(-2px); }
+    .btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
+    .btn.ghost:hover { background: var(--ink); color: var(--white); }
+    .portrait { position: relative; justify-self: center; width: min(100%, 320px); }
+    .portrait::before { content: ""; position: absolute; inset: 22px -18px -18px 22px; background: var(--marigold); border-radius: 999px 999px 28px 28px; }
+    .portrait img { position: relative; display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; border-radius: 999px 999px 28px 28px; background: var(--mist); }
+
+    /* Sections */
+    section { padding: 72px 0; border-top: 2px solid var(--ink); }
+    h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.1; }
+    .split { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; }
+    .split > h2 { align-self: start; }
+
+    .rows { list-style: none; }
+    .rows li { padding: 22px 0; border-bottom: 1px solid var(--mist); }
+    .rows li:first-child { padding-top: 0; }
+    .rows li:last-child { border-bottom: 0; }
+    .rows h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin-bottom: 4px; }
+    .rows p { color: var(--muted); max-width: 36em; }
+    .rows .tools { margin-top: 8px; font-size: 0.95rem; font-weight: 600; color: var(--indigo); }
+
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 36px; }
+    .skills h3 { font-family: var(--display); font-size: 1.15rem; margin-bottom: 10px; }
+    .skills ul { list-style: none; }
+    .skills li { padding: 6px 0; border-bottom: 1px solid var(--mist); }
+
+    .about p + p { margin-top: 16px; }
+    .about p { max-width: 38em; }
+
+    .contact { background: var(--ink); color: var(--paper); border-top: 0; border-radius: 28px 28px 0 0; }
+    .contact h2 { color: var(--white); }
+    .contact p { margin-top: 16px; max-width: 30em; color: #C9CDE8; }
+    .contact .mail { display: inline-block; margin-top: 28px; font-family: var(--display); font-weight: 700; font-size: clamp(1.4rem, 4.5vw, 2.4rem); color: var(--marigold); text-decoration: underline; text-underline-offset: 6px; word-break: break-all; }
+    .contact .mail:focus-visible { outline-color: var(--marigold); }
+    .links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 20px; }
+    .links a { color: var(--paper); }
+    footer { background: var(--ink); color: #9EA3C8; padding: 28px 0 40px; font-size: 0.92rem; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding-bottom: 64px; }
+      .portrait { order: -1; width: 220px; justify-self: start; }
+      .split { grid-template-columns: 1fr; gap: 28px; }
+      .top nav { gap: 14px; }
+      .top nav a { font-size: 0.9rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+      .btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="top">
+      <a class="mark" href="#top">Arlyn Labrador</a>
+      <nav aria-label="Main">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <header class="hero" id="top">
+      <div>
+        <h1>Arlyn Jane Labrador</h1>
+        <p class="lead">Virtual assistant who also builds simple websites and designs your posters, slides, and videos.</p>
+        <div class="actions">
+          <a class="btn" href="#contact">Hire me</a>
+          <a class="btn ghost" href="#projects">See my work</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="profile.jpg" alt="Portrait of Arlyn Jane Labrador" width="326" height="432">
+      </div>
+    </header>
+  </div>
+
+  <div class="wrap">
+    <section id="services" class="split">
+      <h2>What I can do for you</h2>
+      <ul class="rows">
+        <li>
+          <h3>Graphic design</h3>
+          <p>Posters, social media graphics, and layouts that look clean and match your brand.</p>
+          <p class="tools">Canva</p>
+        </li>
+        <li>
+          <h3>Presentations</h3>
+          <p>Slide decks that are easy to read and ready to present, built from your notes or rough outline.</p>
+          <p class="tools">PowerPoint, Canva</p>
+        </li>
+        <li>
+          <h3>Video editing</h3>
+          <p>Basic edits for short clips: trimming, captions, music, and simple transitions.</p>
+          <p class="tools">CapCut</p>
+        </li>
+        <li>
+          <h3>Websites and web fixes</h3>
+          <p>Landing pages and small web apps, plus fixes and updates to existing pages.</p>
+          <p class="tools">HTML, CSS, JavaScript, Python, Django</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="projects" class="split">
+      <h2>Projects</h2>
+      <ul class="rows">
+        <li>
+          <h3>SMART: waste collection app</h3>
+          <p>A mobile-based waste collection system for community management, built as my thesis project for my BSIT degree.</p>
+          <p class="tools">Django, XAMPP, Firebase</p>
+        </li>
+        <li>
+          <h3>Web applications</h3>
+          <p>Web apps built with a working front end and a database behind it.</p>
+          <p class="tools">HTML, CSS, JavaScript, Python</p>
+          <!-- ADD LATER: a link to a live demo or its GitHub repo, like this:
+               <p><a href="https://github.com/arlynstudio/your-repo">View project</a></p> -->
+        </li>
+        <li>
+          <h3>Posters and presentations</h3>
+          <p>Designs made in Canva and PowerPoint for school and community use.</p>
+          <p class="tools">Canva, PowerPoint</p>
+          <!-- ADD LATER: upload a few images to your repo and show them here, like this:
+               <img src="poster1.png" alt="Poster design" style="width:100%; border-radius:12px; margin-top:12px;"> -->
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills and tools</h2>
+      <div class="skills">
+        <div>
+          <h3>Technical</h3>
+          <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Python, C++</li>
+            <li>Django, Firebase, XAMPP</li>
+            <li>Networking fundamentals</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Creative</h3>
+          <ul>
+            <li>Canva graphic design</li>
+            <li>PowerPoint presentations</li>
+            <li>Poster and layout design</li>
+            <li>CapCut video editing</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Working style</h3>
+          <ul>
+            <li>Responsible and dependable</li>
+            <li>Attention to detail</li>
+            <li>Time management</li>
+            <li>Quick to learn and adapt</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="split about">
+      <h2>About me</h2>
+      <div>
+        <p>I'm a BS Information Technology graduate, majoring in Networking, based in Lanao del Norte, Philippines.</p>
+        <p>I like work that mixes tech and design: setting up a web page one day, polishing a presentation the next. I double-check my work, keep to deadlines, and ask questions early so nothing gets missed.</p>
+        <p>I'm looking for freelance projects where I can keep growing while delivering clean, reliable work.</p>
+      </div>
+    </section>
+  </div>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Let's work together</h2>
+      <p>Tell me what you need and when you need it. I usually reply within a day.</p>
+      <a class="mail" href="mailto:arlynjane59@gmail.com">arlynjane59@gmail.com</a>
+      <div class="links">
+        <a href="https://github.com/arlynstudio">GitHub</a>
+        <!-- ADD LATER: your other profiles, like this:
+             <a href="https://www.upwork.com/freelancers/your-link">Upwork</a>
+             <a href="https://www.linkedin.com/in/your-link">LinkedIn</a>
+             <a href="https://www.onlinejobs.ph/jobseekers/info/your-id">OnlineJobs.ph</a> -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Arlyn Jane Labrador</div>
+  </footer>
+
+</body>
+</html>
